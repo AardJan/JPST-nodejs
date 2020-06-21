@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <title>Adrian Jany page</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var tekst;
+        $("#submit").click(function(){
+          tekst=$("#tekst").val();
+
+          $.post("http://localhost:3000/msg",{tekst: tekst}, function(){
+          });
+        });
+        $("#submit_todb").click(function(){
+          tekst=$("#tekst").val();
+
+          $.post("http://localhost:3000/msg_todb",{tekst: tekst}, function(){
+          });
+        });
+      });
+    </script>
+</head>
+<body>
+ <h1>Wpisz tutaj tekst wiadomości</h1>
+    <input type="tekst" id="tekst" size="40"><br>
+    <input type="button" id="submit" value="Submit to log">
+    <input type="button" id="submit_todb" value="Submit to mongo">
+</body>
